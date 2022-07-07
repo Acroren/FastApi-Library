@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content -%}
+    <div class="content container">
+        {% for i in book_list -%}
+            <div class = "book">
+                <h2><a href="/book/{{i.id}}">{{i.name}}</a></h2>
+                <h3>{{i.saga}}</h3>
+                <p>{{i.sinopsis}}</p>
+<!--                <p><img src={{i.url}} alt="image" style="width:125px; height:200px;"></p>-->
+            </div>
+        {% endfor -%}
+    </div>
+{% endblock %}

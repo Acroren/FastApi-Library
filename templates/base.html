@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+    <div class="page-header">
+        {% if perm.name == "GUEST" -%}
+            <a href="/login" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+        {% endif -%}
+
+        {% if perm.name == "USER" -%}
+            <a href="/login" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+            <a href="/add" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif -%}
+
+        {% if perm.name == "ADMIN" -%}
+            <a href="/login" class="top-menu"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a href="/add" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif -%}
+        <h1><a href="/">MY LIBRARY</a></h1>
+
+
+    </div>
+    <div class="content container">
+        {% block content %}<p>This will appear if you don't set a block in the inheriting template.</p>{% endblock %}
+
+    </div>
+</body>
+</html>

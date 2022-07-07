@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content -%}
+    <div class="content container">
+            {% if perm.name == "ADMIN" -%}
+                <a href="/modify/{{book.id}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="/remove/{{book.id}}" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></a>
+            {% endif -%}
+            <div class = "book">
+                <h2>{{book.name}}</h2>
+                <h3>{{book.saga}}</h3>
+                <p>{{book.sinopsis}}</p>
+                <p><img src={{book.url}} alt="image" style="width:125px; height:200px;"></p>
+            </div>
+
+    </div>
+{% endblock %}
